@@ -31,8 +31,6 @@ h1:after, .card h6:after,
   margin-left: 0.192rem;
 }
 
-
-
 .card {
   color: white;
   background: #231e1e;
@@ -77,6 +75,10 @@ h1:after, .card h6:after,
 
 .row {
   margin: 0;
+}
+
+.selected {
+  border: 1px red solid;
 }
 
 footer {

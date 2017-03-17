@@ -10,13 +10,13 @@ function AnswerCardsController($scope, AnswersFactory){
   var ac = this;
   var CARDS_PER_PLAYER = 2;
   ac.playerCards = [];
+  ac.selectedAnswers = [];
 
   for(var i = 0; i < $scope.$parent.numPlayers; i++){
     ac.playerCards.push(shuffleArray(AnswersFactory.getCards(), CARDS_PER_PLAYER));
   }
 
   console.log(ac.playerCards);
-  // ac.aCards = shuffleArray(AnswersFactory.getCards(), $scope.$parent.numPlayers);
 
   $scope.$parent.reset = function(num){
     if(num >= 0 && num <= 10){
@@ -26,10 +26,13 @@ function AnswerCardsController($scope, AnswersFactory){
         ac.playerCards.push(shuffleArray(AnswersFactory.getCards(), CARDS_PER_PLAYER));
       }
       console.log(ac.playerCards);
-
-      // ac.aCards = shuffleArray(AnswersFactory.getCards(), num);
       $scope.$parent.displayCard = $scope.$parent.qCards[pickCardIndex($scope.$parent.qCards.length)];
     }
+  };
+
+  // CHOOSE ANSWER FUNCTION
+  $scope.selectAnswer = function (playerIndex, card) {
+    ac.selectedAnswers[playerIndex] = card;
   };
 }
 
@@ -42,11 +45,4 @@ function shuffleArray(arr, limit){
   });
 
   return shuffled.slice(0, limit);
-}
-
-// CHOOSE ANSWER FUNCTION
-function selectAnswer(playerIndex, cardIndex) {
-  // ???????
-  $scope.$parent.selectedAnswers.push({playerIndex: cardIndex})
-
 }

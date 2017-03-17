@@ -7,7 +7,7 @@
 </div>
 <div class="row">
   <div class='col-sm-3' ng-repeat="card in player">
-    <div class='answer-card'>
+    <div class='answer-card' ng-class="{'selected': ac.selectedAnswers.includes(card)}" ng-click="selectAnswer(ac.playerCards.indexOf(player), card)">
       <h4 class="card-title">{{card.answer}}</h4>
       <h6>Cards Against Assembly</h6>
     </div>
