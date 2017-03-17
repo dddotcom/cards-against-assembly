@@ -43,3 +43,10 @@ function shuffleArray(arr, limit){
 
   return shuffled.slice(0, limit);
 }
+
+// CHOOSE ANSWER FUNCTION
+function selectAnswer(playerIndex, cardIndex) {
+  // ???????
+  $scope.$parent.selectedAnswers.push({playerIndex: cardIndex})
+
+}

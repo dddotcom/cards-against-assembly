@@ -4,6 +4,7 @@ angular.module('CardsAgainstAssembly', ['CardsApp'])
   $scope.displayCard = $scope.qCards[pickCardIndex($scope.qCards.length)];
   $scope.numPlayers = 2;
   $scope.errorMessage = "";
+  $scope.selectedAnswers = [];
 
   $scope.$watch("numPlayers", function(newVal, oldVal){
     $scope.errorMessage = "";

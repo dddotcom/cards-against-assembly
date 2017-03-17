@@ -54,6 +54,7 @@ h1:after, .card h6:after,
 .card,
 .answer-card {
   border: 1px solid black;
+  border-radius: 15px;
   padding: 1rem;
   min-height: 16rem;
   position: relative;
