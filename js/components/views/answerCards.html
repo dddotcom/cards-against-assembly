@@ -1,0 +1,13 @@
+<h2>The Answers:</h2>
+<div class="row" ng-repeat="player in ac.playerCards track by $index">
+  <div class="row">
+    <h3>Player {{ $index }}'s hand</h3>
+  </div>
+
+  <div class='col-sm-3' ng-repeat="card in player">
+    <div class='answer-card'>
+      <h4 class="card-title">{{card.answer}}</h4>
+      <h6>Cards Against Assembly</h6>
+    </div>
+  </div>
+</div>

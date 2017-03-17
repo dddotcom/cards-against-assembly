@@ -9,25 +9,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/components/answerCards.js"></script>
   </head>
-  <body>
+  <body ng-controller="CardsCtrl">
     <div class="container">
       <header class='navbar'>
         <h1 class='pull-left'>Cards Against Assembly</h1>
       </header>
 
-      <section id="cards" class='container-fluid' ng-controller="CardsCtrl">
+      <h2>How many people are playing?</h2>
+      <input type="number" ng-model="numPlayers">
+      <input type="button" class="btn btn-success" ng-click="reset(numPlayers)" value="Next Round!">
+      <p class="text-danger">{{ errorMessage }}</p>
+
+      <section id="cards" class='container-fluid'>
         <div class='row'>
 
-          <div class='col-sm-6 col-md-6 col-lg-4' ng-repeat="card in cards">
+          <div class='col-sm-3'>
+            <h2>The Question:</h2>
             <div class='card'>
-              <h4 class="card-title">{{card.question}}</h4>
+              <h4 class="card-title">{{displayCard.question}}</h4>
+              <h6>Cards Against Assembly</h6>
+            </div>
+          </div>
+          <div class='col-sm-3'>
+            <div class='card  card-back'>
+              <h4 class="card-title"></h4>
+              <h6>Cards Against Assembly</h6>
+            </div>
+          </div>
+          <div class='col-sm-3'>
+            <div class='card answer-card  card-back'>
+              <h4 class="card-title"></h4>
               <h6>Cards Against Assembly</h6>
             </div>
           </div>
 
+
+
         </div>
+
+        <answer-cards></answer-cards>
+        
       </section>
 
       <footer>
